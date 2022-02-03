@@ -43,7 +43,42 @@ export const people = [
   }
 ]
 
-export const getById = id => {
-  const filteredPeople = people.filter(el => id === el.id)
-  return filteredPeople[0]
+let movies = [
+  {
+    id: 0,
+    name: 'Star Wars - The new one',
+    score: 1
+  },
+  {
+    id: 1,
+    name: 'Avengers - The new one',
+    score: 8
+  },
+  {
+    id: 2,
+    name: 'the godfather i',
+    score: 99
+  },
+  {
+    id: 3,
+    name: 'logan',
+    score: 2
+  }
+]
+
+export const getById = (id) => {
+  const filteredMovies = movies.filter((el) => id === el.id)
+  return filteredMovies[0]
+}
+
+export const getMovies = () => movies
+
+export const deleteMovie = (id) => {
+  const cleanedMovies = movies.filter((el) => id !== el.id)
+  if(movies.length > cleanedMovies.length) {
+    movies = cleanedMovies
+    return true
+  } else {
+    return false
+  }
 }
